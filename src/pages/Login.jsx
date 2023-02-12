@@ -1,6 +1,7 @@
 import React from 'react'
 import img from '../assets/Picture.svg'
 import logo from '../assets/Logo.svg'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
     return (
@@ -10,7 +11,7 @@ const Login = () => {
             </div>
             <div className="h-screen bg-white flex justify-end items-center">
                 <div className="lg:w-2/5 md:w-1/2 w-2/3">
-                    <img src={logo} className="absolute " />
+                    <Link to="/home"><img src={logo} className="absolute " /></Link>
                     <form className="bg-white p-10   min-w-full">
                         <h3 className="flex justify-start text-gray-600 font-bold font-sans" >Welcome back!</h3>
                         <h1 className="text-2xl mb-6 text-gray-600 font-bold font-sans">Login to your account</h1>

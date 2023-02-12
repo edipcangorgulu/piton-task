@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const BestSeller = () => {
@@ -19,7 +20,7 @@ const BestSeller = () => {
         bookData()
     }, []);
     const dataArray = Object.values(data)
-    console.log(dataArray);
+
     useEffect(() => {
         const ımgData = async () => {
             try {
@@ -47,25 +48,25 @@ const BestSeller = () => {
 
     return (
         <div className="">
-          <div className="grid grid-cols-2 gap-4">
-            <h1 className="text-2xl col-start-1">Best Seller</h1>
-            <a href="bookdetail">
-              <h2 className="col-end-5 col-span-2 text-orange-600">View All</h2>
-            </a>
-          </div>
-          {dataArray.map((item, id) => (
-            <ul key={id} className="grid grid-cols-6 gap-3">
-              {item.map((book, index) => (
-                <li className="bg-gray-100" key={book.name + index}>
-                  <img src={bookCovers[index]} alt={book.name} />
-                  {book.author} <br />
-                  {book.price}$
-                </li>
-              ))}
-            </ul>
-          ))}
+            <div className="grid grid-cols-2 gap-4">
+                <Link to="/home/bestseller" ><h1 className="text-2xl col-start-1">Best Seller</h1></Link>
+                <a href="bookdetail">
+                    <h2 className="col-end-5 col-span-2 text-orange-600">View All</h2>
+                </a>
+            </div>
+            {dataArray.map((item, id) => (
+                <ul key={id} className="grid grid-cols-6 gap-3">
+                    {item.map((book, index) => (
+                        <li className="bg-gray-100" key={book.name + index}>
+                            <img src={bookCovers[index]} alt={book.name} />
+                            {book.author} <br />
+                            {book.price}$
+                        </li>
+                    ))}
+                </ul>
+            ))}
         </div>
-      );
+    );
 }
 
 export default BestSeller
