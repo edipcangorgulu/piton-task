@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
-import BestSellers from '../components/BestSeller'
+import BestSeller from '../components/BestSeller'
 
 const BestSellerWeb = () => {
     return (
@@ -8,7 +8,7 @@ const BestSellerWeb = () => {
             <Header />
             <br />
             <br />
-            <BestSellers />
+            <BestSeller />
         </div>
     )
 }
