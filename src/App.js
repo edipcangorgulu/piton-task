@@ -1,8 +1,7 @@
 import Home from "./pages/Home";
 import BestSellerWeb from "./pages/BestSellerWeb";
-import BookDetails from "./pages/BookDetails";
 import Login from "./pages/Login";
-import { Routes, Route, Link, NavLink } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
 

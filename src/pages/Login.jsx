@@ -9,11 +9,13 @@ const Login = () => {
             <div className='absolute lg:w-2/5 md:w-1/2 w-2/3'>
                 <img className='' src={img} />
             </div>
-            <div className="h-screen bg-white flex justify-end items-center">
+            <div className="h-screen bg-white flex justify-end items-center mr-60">
                 <div className="lg:w-2/5 md:w-1/2 w-2/3">
-                    <Link to="/home"><img src={logo} className="absolute " /></Link>
+                    <Link to="/home">
+                        <img src={logo} className="absolute ml-60 mt-8 " />
+                    </Link>
                     <form className="bg-white p-10   min-w-full">
-                        <h3 className="flex justify-start text-gray-600 font-bold font-sans" >Welcome back!</h3>
+                        <h3 className="flex justify-start text-gray-600 font-bold font-sans mt-10" >Welcome back!</h3>
                         <h1 className="text-2xl mb-6 text-gray-600 font-bold font-sans">Login to your account</h1>
                         <div className='mt-14'>
                             <label className="text-gray-800 font-semibold block my-3 text-md" htmlFor="email">E-mail</label>

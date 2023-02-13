@@ -1,12 +1,13 @@
 import React from 'react'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 const BestSeller = () => {
     const [data, setData] = useState([])
     const [coverImage, setCoverImage] = useState([]);
+    const location = useLocation();
     useEffect(() => {
         const bookData = async () => {
             await axios.get("https://assign-api.piton.com.tr/api/rest/products/1")
@@ -48,19 +49,22 @@ const BestSeller = () => {
 
     return (
         <div className="">
-            <div className="grid grid-cols-2 gap-4">
-                <Link to="/home/bestseller" ><h1 className="text-2xl col-start-1">Best Seller</h1></Link>
-                <a href="bookdetail">
-                    <h2 className="col-end-5 col-span-2 text-orange-600">View All</h2>
-                </a>
+            <div className="grid grid-cols-6 gap-4">
+                <Link to="/home/bestseller" ><h1 className="text-2xl col-start-1 col-end-3 ml-4 mb-4">Best Seller</h1></Link>
+                {location.pathname !== "/home/bestseller" &&
+                    <Link className="col-end-7 col-span-2 text-right  text-orange-600" to="/home/bestseller">
+                        <h2 className="text-orange-600 mr-5">View All</h2>
+                    </Link>
+                }
             </div>
             {dataArray.map((item, id) => (
                 <ul key={id} className="grid grid-cols-6 gap-3">
                     {item.map((book, index) => (
                         <li className="bg-gray-100" key={book.name + index}>
                             <img src={bookCovers[index]} alt={book.name} />
-                            {book.author} <br />
-                            {book.price}$
+                            <h3>{book.name} </h3>
+                            <h3>{book.author}</h3>
+                            <h3>{book.price}$</h3>
                         </li>
                     ))}
                 </ul>
